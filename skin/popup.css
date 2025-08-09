@@ -1,0 +1,77 @@
+body {
+	margin: 8px;
+}
+
+.popupmenu {
+/*  display: flex; */
+    flex-direction: column;
+    color: #303942;
+    background: #f9fafb;
+    -webkit-user-select: none;
+}
+
+.popupmenu .popupitem {
+    cursor: pointer;
+    display: block;
+    white-space: nowrap;
+}
+
+.popupmenu .popupitem:hover {
+    background: rgb(235, 235, 235); /*#565a63; 
+    color: white;*/
+}
+
+.popupmenu .popupitem.separator {
+    background-color: rgba(0,0,0,0.15);
+    height: 1px;
+    pointer-events: none;
+    margin: 2px 0;
+}
+
+.popupmenu .popupitem:not(.separator) {
+    padding: 7px 10px;
+    border-radius: 2px;
+}
+
+.popupmenu .popupitem[checked] {
+    background: rgb(80, 135, 90); /*#54975f;*/
+    color: white;
+}
+
+.popupmenu .popupitem[checked="2"], .popupmenu .popupitem[checked="3"] {
+    background: rgb(135, 80, 90); /*#54975f;*/
+    color: white;
+}
+
+.popupmenu .popupitem[checked="4"] {
+    background: rgb(110, 80, 90); /*#54975f;*/
+    color: white;
+}
+
+.popupmenu.restricted #allow_site, .popupmenu.restricted #allow_session, .popupmenu.restricted #disable_site {
+    opacity: 0.5;
+    pointer-events: none;    
+}
+
+.popupmenu #allow_all[checked] {
+    background: darkgray;
+}
+
+@media (prefers-color-scheme: dark) {
+	html > body, .popupmenu {
+		background-color: rgb(41, 42, 45);
+		color: rgb(232, 234, 237);
+	}
+	
+	.popupmenu .popupitem.separator	{
+		background-color: rgb(60, 64, 67);
+	}
+	
+	.popupmenu .popupitem[checked] {
+		background-image: linear-gradient(#0000005a, #0000005a) !important;
+	}
+	
+	.popupmenu .popupitem:not([checked]):hover {
+		background-color: rgb(75, 76, 79);
+	}
+}

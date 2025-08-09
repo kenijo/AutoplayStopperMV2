@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link href="options.css" rel="stylesheet" type="text/css" />
+        <script src="/options.js"></script>
+        <style type="text/css">
+        
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            width: 560px;
+            height: 400px; 
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+        
+        h2 {
+            margin: 1em 17px;
+            font-size: 1.3em;            
+        }        
+
+        h1, h2, h3 {
+            user-select: none;
+            font-weight: normal;
+            line-height: 1;
+        }        
+        
+        hr {
+            border-style: solid; 
+            color: #dddddd; 
+            border-top-width: 0px;
+            margin-top: 1em;
+            margin-bottom: 1.5em;
+            margin-inline-start: initial;
+            margin-inline-end: initial;            
+        }
+        
+        input.settings-checkbox {
+            margin: auto 1px;        
+            -webkit-margin-start: 0px;
+            margin-inline-start: 0px;
+            position: static;
+        }        
+        </style>        
+
+    </head>
+    <body>
+        <div style="text-align: center; display: block;">
+            <span i18n-content="version">Version</span>
+            <span id="extension-version"></span>
+        </div>
+        <h1> <span i18n-content="settings" style="position: relative; top: -.7em">Settings</span></h1>
+        <h2 i18n-content="autoplayTabLabel">Autoplay</h2>
+
+        <div class="settings-row">
+            <label for="autoplay-default" class="settings-label" i18n-content="defaultMode">Default Mode:</label>
+            <select id="autoplay-default">
+                <option i18n-content="disableAutoplay" value="2">Disable Autoplay</option>
+                <option i18n-content="allowAutoplay" value="1">Allow Autoplay</option>
+            </select>
+            <button class="exceptions-list-button" contenttype="autoplay" i18n-content="manageExceptions">Exceptions...</button>
+        </div>
+        <hr />
+        <h2 i18n-content="flashTabLabel">Flash</h2>
+        <div class="settings-row">
+            <label class="settings-label" for="flash-default" i18n-content="defaultMode">Default Mode:</label>
+            <select id="flash-default">
+                <option i18n-content="allowFlash" value="1">Allow Flash</option>
+                <option i18n-content="disableFlash" value="2">Disable Flash</option>
+            </select>
+            <button class="exceptions-list-button" contenttype="flash" i18n-content="manageExceptions">Exceptions...</button>
+        </div>
+        <div class="overlay transparent" hidden>   
+        <div id="content-settings-exceptions-area" class="page">
+            <button class="close-button raw-button custom-appearance"></button>
+            <h2 contenttype="autoplay" i18n-content="autoplayExceptions">Autoplay exceptions</h2>
+            <h2 contenttype="flash" i18n-content="flashExceptions" hidden>Flash exceptions</h2>
+            <div class="content-area" tabindex="-1">
+                <div id="exception-column-headers">
+                    <div id="exception-pattern-column" i18n-content="exceptionHostnameHeader">
+                        Hostname</div>
+                    <div id="exception-behavior-column" class="exception-value-column-header" i18n-content="exceptionBehaviorHeader">
+                        Behavior</div>
+                </div>
+                <div contenttype="autoplay">
+                    <list id="autoplay-list" aria-activedescendant="listitem-27" class="settings-list" inlineeditable="" mode="normal" role="list" tabindex="-1">
+                        <div class="spacer" style="height: 0px;"></div>
+                        <div role="listitem" id="listitem" class="deletable-item" aria-posinset="1" aria-setsize="3"><div><div class="exception-pattern weakrtl"><div id="perms-host" class="static-text overruleable" displaymode="static" tabindex="-1"></div><input id="perms-host-input" type="text" displaymode="edit" tabindex="0"></div><span id="perms-type" class="exception-setting overruleable" displaymode="static" tabindex="-1"></span><select id="perms-type-select" tabindex="0" class="exception-setting" aria-labelledby="exception-behavior-column" displaymode="edit"><option value="1" i18n-content="exceptionAllow">Allow</option><option value="2" i18n-content="exceptionBlock">Block</option><option value="3" i18n-content="exceptionPrompt">Block (strict)</option><option value="4" i18n-content="exceptionShadow">Block (shadow)</option><option value="8" i18n-content="exceptionSession">Session</option><option value="0" i18n-content="exceptionUndefined">Undefined</option></select></div><button class="raw-button row-delete-button custom-appearance" tabindex="-1" title="Delete this item"></button></div>
+                        <div role="listitem" id="inputitem" selected="selected" lead="lead" class="deletable-item"><div><div class="exception-pattern weakrtl"><input id="perms-host-input" type="text" tabindex="0" placeholder="http://example.com"></div><select id="perms-type-select" tabindex="0" class="exception-setting" aria-labelledby="exception-behavior-column"><option value="1" i18n-content="exceptionAllow">Allow</option><option value="2" i18n-content="exceptionBlock">Block</option><option value="3" i18n-content="exceptionPrompt">Block (strict)</option><option value="4" i18n-content="exceptionShadow">Block (shadow)</option><option value="8" i18n-content="exceptionSession">Session</option><option value="0" i18n-content="exceptionUndefined">Undefined</option></select></div><button class="raw-button row-delete-button custom-appearance" tabindex="-1" title="Delete this item" disabled=""></button></div>
+                        <div class="spacer" style="height: 0px;"></div>
+                    </list>
+                </div>
+                <div contenttype="flash" hidden>
+                    <list id="flash-list" aria-activedescendant="listitem-27" class="settings-list" inlineeditable="" mode="normal" role="list" tabindex="-1">
+                        <div class="spacer" style="height: 0px;"></div>
+                        <div role="listitem" id="listitem" class="deletable-item" aria-posinset="1" aria-setsize="3"><div><div class="exception-pattern weakrtl"><div id="perms-host" class="static-text overruleable" displaymode="static" tabindex="-1"></div><input id="perms-host-input" type="text" displaymode="edit" tabindex="0"></div><span id="perms-type" class="exception-setting overruleable" displaymode="static" tabindex="-1"></span><select id="perms-type-select" tabindex="0" class="exception-setting" aria-labelledby="exception-behavior-column" displaymode="edit"><option value="1" i18n-content="exceptionAllow">Allow</option><option value="2" i18n-content="exceptionBlock">Block</option><option value="0" i18n-content="exceptionUndefined">Undefined</option></select></div><button class="raw-button row-delete-button custom-appearance" tabindex="-1" title="Delete this item"></button></div>
+                        <div role="listitem" id="inputitem" selected="selected" lead="lead" class="deletable-item"><div><div class="exception-pattern weakrtl"><input id="perms-host-input" type="text" tabindex="0" placeholder="http://example.com"></div><select id="perms-type-select" tabindex="0" class="exception-setting" aria-labelledby="exception-behavior-column"><option value="1" i18n-content="exceptionAllow">Allow</option><option value="2" i18n-content="exceptionBlock">Block</option><option value="0" i18n-content="exceptionUndefined">Undefined</option></select></div><button class="raw-button row-delete-button custom-appearance" tabindex="-1" title="Delete this item" disabled=""></button></div>
+                        <div class="spacer" style="height: 0px;"></div>
+                    </list>
+                </div>                
+            </div>
+            <div class="action-area" style="padding-top: .5em">
+                <div class="hbox stretch">
+                </div>
+                <button id="exceptions-clear" style="margin-left: 20px;" i18n-content="removeAll">Remove All</button>
+                <button id="exceptions-export" i18n-content="export">Export...</button>
+                <button id="exceptions-import" i18n-content="import">Import...</button>
+                <div class="action-area-right" style="-webkit-box-pack: end; display: -webkit-box;">
+                    <div class="button-strip" reversed="" style="position:relative; top: -1.5em; right: 19px">
+                        <button id="exceptions-apply"  disabled i18n-content="apply">Apply</button>
+                        <button id="exceptions-confirm" class="default-button" i18n-content="done">Done</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <hr />
+        <h2 i18n-content="advanced">Advanced</h2>
+        <div class="settings-row">
+            <input id="devtools" class="settings-checkbox" type="checkbox" />
+            <label class="settings-label" i18n-content="devtools">Devtools Panel</label>
+        </div>
+        <a id="export-link" hidden="true"></a>
+        <input id="import-input" type="file" hidden="true" accept=".json"/>
+    </body>
+</html>

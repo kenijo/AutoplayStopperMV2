@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/utils.js"></script>
+    <script src="/devtools.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0.5% 10%; 
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            color: #4c4c4c;                  
+        }
+        
+        label.settings-label {
+            min-width: 80px;
+            font-size: initial;
+            font-weight: lighter;            
+        }
+        
+        div.settings-row {
+            margin: 6px 18px;
+            display: flex;
+            align-items: center;
+        }
+        
+        input.settings-checkbox {
+            align-self: flex-end; 
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 10px;
+            margin-inline-start: 0px;
+            margin-inline-end: 10px;
+        }
+        
+        button {
+            margin-inline-end: 3px;
+            white-space: nowrap;
+        }
+        
+        button:disabled {
+            color: #a0a0a0;
+        }        
+        
+        button:not([disabled]) {
+            color: inherit;        
+        }
+        
+        span.input {
+            min-width: 450px;
+            max-width: 85%;
+            border: 1px solid rgb(170, 170, 170);
+            padding: 1px 2px;
+            -webkit-appearance: textfield;
+            font-size: 13.3333px;
+            white-space: nowrap;
+            overflow: hidden;
+            height: 17px; /* fff */
+        }
+        
+        hr {
+            border-color: rgb(210, 210, 210);
+            border-top-width: 0px;
+            margin-bottom: 1em;
+            margin-top: .9em;
+        }
+        
+        h2 {
+            font-weight: 400;
+            margin-top: 15px; /* fff */
+        }
+        
+        #splitter {
+            display: flex;
+            flex-flow: column nowrap;
+            overflow: hidden;
+            height: 0;
+            min-height: calc(40px + 6.5em);
+            max-height: calc(100vh - 10px);
+            margin-bottom: 1px;
+            resize: vertical;
+            background: linear-gradient(to right bottom, transparent 50%,
+                        rgba(0, 0, 0, 0.1) 50%) 100% 100% / 16px 15px no-repeat;
+        }
+        
+        #selector {
+            height: 100%;
+            width: 800px;
+            color: darkslateblue;
+            border: 1px solid rgb(170, 170, 170);
+            resize: none;
+        }
+        
+        :focus {
+            outline: 1px solid gray;
+            outline-offset: -1px;
+        }
+        
+        :root.theme-dark { color-scheme: dark; }
+        
+        .theme-dark body {
+            color: rgb(210 210 210);
+            background-color: rgb(30,30,30);
+        }
+        
+        .theme-dark hr {
+            border-color: gray;
+        }            
+        
+        .theme-dark button {
+            border-color: transparent;
+            border-radius: 4px;
+            background-color: dimgray;
+            outline: none !important;;
+        }
+        
+        .theme-dark button:disabled {
+            background-color: #3a3a3a;
+        }
+        
+        .theme-dark button:enabled:hover {
+            background-color: gray;
+        }
+         
+        .theme-dark #selector {
+            color: lightsteelblue;
+            background-color: #3a3a3a;
+        }
+        
+        .theme-dark :is(textarea, span.input):focus {
+            outline-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <div id="splitter">
+    <div class="settings-row" style="margin:0 0px;">
+        <img src="../icons/icon48.png" style="margin: 10px; height: 32px;" />
+        <h2>AutoplayStopper</h2>
+        <h2 id="ver" style="font-weight: 200; -webkit-margin-start: 10px; margin-inline-start: 10px;">1.0.0</h2>
+    </div>
+    <hr style="width: calc(100% - 2px); margin-top: 6px; margin-bottom: 0px"/>
+    <h2 i18n-content="selector">Selector</h2>
+    <div class="settings-row" style="height: 100%;">
+        <label class="settings-label" i18n-content="text" style="margin-bottom: auto;">Text</label>
+        <textarea id="selector" spellcheck="false"></textarea>
+    </div>
+    <div class="settings-row" style="margin-bottom: calc(.9em - 1px);">
+        <label class="settings-label" i18n-content="actions">Actions</label>
+        <button id="reset" i18n-content="reset">Reset</button>
+        <button id="apply" disabled="" i18n-content="apply"></button>
+    </div>
+    </div>
+    <hr style="margin-top:0px"/>
+    <h2 i18n-content="script">Script</h2>
+    <div class="settings-row">
+        <label class="settings-label" i18n-content="path">Path:</label>
+        <span id="path-input" class="input" contenteditable="true" spellcheck="false"></span>
+    </div>
+    <div class="settings-row">
+        <label class="settings-label" i18n-content="actions">Actions:</label>
+        <button id="edit-button" i18n-content="edit">Edit</button>
+        <button id="load-button" i18n-content="load">Load</button>
+        <button id="export-button" i18n-content="export">Export...</button>
+        <button id="path-button" i18n-content="setPath" disabled>Set Path</button>
+        <button id="select-button" i18n-content="selectFile" >File...</button>
+        <label id="filename" class="settings-label" style="-webkit-margin-start:10px;margin-inline-start:10px;"/>
+    </div>
+    <hr />
+    <h2 i18n-content="userScript">User Script</h2>
+    <div class="settings-row">
+        <label class="settings-label" i18n-content="path">Path:</label>
+        <span id="upath-input" class="input" contenteditable="true" spellcheck="false"></span>
+    </div>
+    <div class="settings-row">
+        <label class="settings-label" i18n-content="actions">Actions:</label>
+        <button id="uedit-button" i18n-content="edit">Edit</button>
+        <button id="uload-button" i18n-content="load">Load</button>
+        <button id="uexport-button" i18n-content="export">Export...</button>
+        <button id="upath-button" i18n-content="setPath" disabled>Set Path</button>
+        <button id="uselect-button" i18n-content="selectFile">File...</button>
+        <label id="ufilename" class="settings-label" style="-webkit-margin-start:10px;margin-inline-start:10px;"/>
+    </div>
+    <hr />
+    <div class="settings-row">
+        <input id="overwrite" class="settings-checkbox" type="checkbox" />
+        <label class="settings-label" i18n-content="overwrite">Disable overwrite on update</label>
+    </div>
+    <div class="settings-row">
+        <input id="debug" class="settings-checkbox" type="checkbox" />
+        <label class="settings-label" i18n-content="debug">Log debug info</label>
+    </div>
+    <a id="export-link" hidden="true"></a>
+</body>
+</html>

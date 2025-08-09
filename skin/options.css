@@ -1,0 +1,663 @@
+    
+/*  chrome://resources/css/list.css     */
+    
+list,
+grid {
+  display: block;
+  outline: none;
+  overflow: auto;
+  position: relative; /* Make sure that item offsets are relative to the
+                         list. */
+}
+
+list > *,
+grid > * {
+  -webkit-user-select: none;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid rgba(255, 255, 255, 0); /* transparent white */
+  border-radius: 2px;
+  cursor: default;
+  line-height: 20px;
+  margin: -1px 0;
+  overflow: hidden;
+  padding: 0 3px;
+  position: relative; /* to allow overlap */
+  text-overflow: ellipsis;
+  white-space: pre;
+}
+
+list > * {
+  display: block;
+}
+
+grid > * {
+  display: inline-block;
+}
+
+list > [lead],
+grid > [lead] {
+  border-color: transparent;
+}
+
+list:focus > [lead],
+grid:focus > [lead] {
+  border-color: hsl(214, 91%, 65%);
+  z-index: 2;
+}
+
+list > [anchor],
+grid > [anchor] {
+
+}
+
+list:not([disabled]) > :hover,
+grid:not([disabled]) > :hover {
+  background-color: hsl(214, 91%, 97%);
+  border-color: hsl(214, 91%, 85%);
+  z-index: 1;
+}
+
+list > [selected],
+grid > [selected] {
+  background-color: hsl(0, 0%, 90%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.8),
+                                            rgba(255, 255, 255, 0));
+  border-color: hsl(0, 0%, 85%);
+  z-index: 2;
+}
+
+list:focus > [selected],
+grid:focus > [selected] {
+  background-color: hsl(214, 91%, 89%);
+  border-color: hsl(214, 91%, 65%);
+}
+
+list:focus > [lead][selected],
+list > [selected]:hover,
+grid:focus > [lead][selected],
+grid > [selected]:hover {
+  background-color: hsl(214, 91%, 87%);
+  border-color: hsl(214, 91%, 65%);
+}
+
+list > .spacer,
+grid > .spacer {
+  border: 0;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+list :-webkit-any(
+    input[type='input'],
+    input[type='password'],
+    input[type='search'],
+    input[type='text'],
+    input[type='url']),
+list :-webkit-any(
+    button,
+    input[type='button'],
+    input[type='submit'],
+    select):not(.custom-appearance) {
+  line-height: normal;
+  margin: 0;
+  vertical-align: middle;
+}      
+
+list input[type='text'] {
+  margin-left: -4px;
+  padding: 3px;
+  width: 190px;	
+}
+
+/*  chrome://resources/css/overlay.css     */
+
+[hidden] {
+    display: none !important;
+}
+
+.overlay {
+    -webkit-box-align: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-perspective: 1px;
+    -webkit-transition: 200ms opacity;   
+    background-color: rgba(255, 255, 255, 0.75);
+/*    bottom: 50px; */
+    display: -webkit-box;
+    left: 0;
+    overflow: auto;
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.overlay.transparent .page {
+    transform: scale(0.99) translateY(-20px);
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.overlay .page {
+    max-height: 335.5px;
+/*    display: -webkit-box;
+    -webkit-box-orient: vertical;
+*/
+    -webkit-border-radius: 3px;
+    -webkit-box-orient: vertical;
+    -webkit-transition: 200ms transform;
+    background: white;
+    box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
+    color: #333;
+    display: -webkit-box;
+    min-width: 400px;
+    padding: 0px;
+    position: relative;
+    z-index: 0;
+}
+
+.overlay .page .content-area {
+    -webkit-box-flex: 1;
+    overflow: auto;
+    overflow: overlay; /* auto */
+    padding: 0px 20px 0px; /* 0px 17px 6px */
+    position: relative;
+    min-height: 226px;
+    outline: 0;
+}
+
+.overlay .page > .close-button {
+    background-image: url(IDR_CLOSE_DIALOG);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 14px;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    width: 14px;
+    z-index: 1;
+}
+
+.overlay .page > .close-button:hover {
+    background-image: url(IDR_CLOSE_DIALOG_H);
+}
+
+.overlay .page > .close-button:focus:not(:hover) {
+    background-image: url(IDR_CLOSE_DIALOG_H);
+    filter: opacity(75%);
+}
+
+div.settings-row {
+    margin: 2px 18px;
+    display: flex;
+    padding: 2px 0;
+}
+
+label.settings-label {
+    width: 130px;
+    display: inherit;
+}
+
+.overlay .page h2 {
+    padding: 4px;
+}
+
+/* chrome://settings/contentExceptions#... */
+
+body {
+  position: relative;
+}
+
+.hbox {
+  -webkit-box-orient: horizontal;
+  display: -webkit-box;
+}
+
+.vbox {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+
+.box-align-center {
+  -webkit-box-align: center;
+}
+
+.stretch {
+  -webkit-box-flex: 1;
+}
+
+.raw-button,
+.raw-button:hover,
+.raw-button:active {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  box-shadow: none !important;
+  min-width: 0;
+  min-height: 0;
+  padding: 1px 6px;
+}
+
+.page list {
+  /* Min height is a multiple of the list item height (32) */
+  box-sizing: content-box;
+  min-height: 192px;
+}
+
+.option {
+  margin-top: 0;
+}
+
+.settings-list,
+.settings-list-empty {
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
+
+/* Editable List properties */
+list > * {
+  -webkit-box-align: center;
+  -webkit-transition: 150ms background-color;
+  border: none;
+  border-radius: 0;  /* TODO(dbeam): Is this necessary? */
+  box-sizing: border-box;
+  display: -webkit-box;
+  height: 32px;
+  margin: 0;
+}
+
+list > .spacer {
+  /* The above height rule should not apply to spacers. When redraw is called
+     on the list they will be given an explicit element height but this ensures
+     they have 0 height to begin with. */
+  height: 0;
+}
+
+list:not([disabled]) > :hover {
+  background-color: rgb(228, 236, 247);
+}
+
+/* Note: If this becomes the list style for other WebUI pages these rules can be
+ * simplified (since they wont need to override other rules). */
+
+list:not([has-element-focus]) > [selected],
+list:not([has-element-focus]) > [lead][selected] {
+  background-color: #d0d0d0;
+  background-image: none;
+}
+
+list[has-element-focus] > [selected],
+list[has-element-focus] > [lead][selected],
+list:not([has-element-focus]) > [selected]:hover,
+list:not([has-element-focus]) > [selected][lead]:hover {
+  background-color: rgb(187, 206, 233);
+  background-image: none;
+}
+
+.settings-list[has-element-focus] > [lead],
+.settings-list[has-element-focus] > [lead][selected] {
+  border-bottom: 1px solid rgb(120, 146, 180);
+  border-top: 1px solid rgb(120, 146, 180); 
+}
+
+.settings-list[has-element-focus] > [lead]:nth-child(2),
+.settings-list[has-element-focus] > [lead][selected]:nth-child(2) {
+  border-top: 1px solid transparent;
+}
+
+.settings-list[has-element-focus] > [lead]:nth-last-child(2),
+.settings-list[has-element-focus] > [lead][selected]:nth-last-child(2) {
+  border-bottom: 1px solid transparent;
+}
+
+.settings-list[disabled] > [lead][selected],
+.settings-list[disabled]:focus > [lead][selected] {
+  border: none;
+}
+
+list .deletable-item {
+  -webkit-box-align: center;
+  outline: none;
+}
+
+list .deletable-item > :first-child {
+  -webkit-box-align: center;
+  -webkit-box-flex: 1;
+  -webkit-padding-end: 5px;
+  -moz-padding-end: 5px;  
+  display: -webkit-box;
+}
+
+list .row-delete-button {
+  -webkit-transition: 150ms opacity;
+  background-color: transparent;
+  background-image: 
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAiElEQVR42r2RsQrDMAxEBRdl8SDcX8lQPGg1GBI6lvz/h7QyRRXV0qUULwfvwZ1tenw5PxToRPWMC52eA9+WDnlh3HFQ/xBQl86NFYJqeGflkiogrOvVlIFhqURFVho3x1moGAa3deMs+LS30CAhBN5nNxeT5hbJ1zwmji2k+aF6NENIPf/hs54f0sZFUVAMigAAAABJRU5ErkJggg==);
+  border: none;
+  display: block;
+  height: 16px;
+  opacity: 1;
+  width: 16px;
+}
+
+list > *:not(:hover):not([selected]):not([lead]) .row-delete-button,
+list:not([has-element-focus]) > *:not(:hover):not([selected])
+    .row-delete-button,
+list[disabled] .row-delete-button,
+list .row-delete-button[disabled] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+list .row-delete-button:hover {
+  background-image: 
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAqUlEQVR4XqWRMQqEMBBF/1E8Ra6x6V3FRnS9QbCxtJg6Z7CzE9lTiIXXyUb3C8EULixDIMM8Zt4kcDfxM5A45U+cgeXnC1tREgkzAgob3hiq3CUHvGLG4FTQoSgxQGDrzN8WTLBGnx2IVDksen9GH7Z9hA5E6uxABMJyCHDMCEGHzugLQPPlBCBNGq+5YtpnGw1Bv+te15ypljTpVzdak5Opy+z+qf//zQ+Lg+07ay5KsgAAAABJRU5ErkJggg==) !important;
+}
+
+list .row-delete-button:active {
+  background-image: 
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAQklEQVR4AWP4TwBSTQGDHcMZIIYAKA9VwRkwtINJgyCaCTAlCBaKAoQ+hFmoCqBKENKkK8C0gpAjCXuTyICiQ2QBAPSwyG3ByZlCAAAAAElFTkSuQmCC)
+          ,
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAA/ElEQVR4Xu3UsWrCUBiG4efGlIBoIMFbcnYolYJ3pg4iKGrGYFTRwaUFhYAekiDt0EG++X2W83N8/3J/DbwBMJJSsdQItcDY1VlCOImzq3Ed8OmicHASB3ns5KBw8VUNpDJrW7uAiJ3sbK1l0mqArpmFTUlQ5jYWZrrUAUSmT0SZm4qoA56JvVhs/5g3A7RLolA85A1ASOTye65NMxASK6syfxGITMzvMxG9CvRkliWwlOm9AsSOcitzU1NzK7mjuBkQvHtLK7iLBiB5PhttJSGpB8I8vM6kDuiHeUjoVwMfYR4SRtUAw1veIZzOjRhSBzCoyKFjgH/3K7+BHzg+Cgw0eSW3AAAAAElFTkSuQmCC)
+          ;
+}
+
+list .static-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+/*    outline: none; bYO! inner rect on selection*/
+}
+
+list[type='text'][inlineeditable] input {
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+}
+
+list > :not([editing]) [displaymode='edit'] {
+  display: none;
+}
+
+list > [editing] [displaymode='static'] {
+  /* Don't use display:none or visibility:hidden because we need to keep an
+   * element focusable.
+   * We shrink only height.  We don't shrink width to avoid to change the size
+   * of containing boxes. */
+  border-bottom: 0 !important;
+  border-top: 0 !important;
+  height: 0 !important;
+  width: auto;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+list > [editing] input:invalid {
+  background-color: pink;
+}
+
+/* UI Controls */
+
+/* LIST */	/* bYO! top level outline... */
+.settings-list[has-element-focus]:after {
+outline: 1px solid rgba(0, 128, 256, 0.5);
+  outline-offset: -1px;
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  pointer-events: none;
+  z-index: 3;
+}
+   
+/* chrome://settings/contentExceptions#... */
+
+#content-settings-exceptions-area {
+  min-width: 540px;
+  width: 540px;
+}
+
+.exception-pattern {
+  -webkit-box-flex: 1;
+  -webkit-margin-end: 10px;
+  -moz-margin-end: 10px;
+  -webkit-margin-start: 14px;
+  -moz-margin-start: 14px;
+  width: 200px;  
+}
+
+.exception-setting {
+  display: inline-block;
+  width: 120px;
+}
+
+select.exception-setting {
+  vertical-align: middle;
+  -webkit-padding-start: 3px;  
+  width: calc(120px  + 4px); 
+}
+
+.overruled .exception-setting {
+  width: calc(120px - 24px);
+}
+
+.overruled .overruleable:focus {
+      outline:auto !important;
+}
+
+.overruled .overruleable {
+  text-decoration: line-through;
+}
+
+#exception-column-headers {
+  margin-left: 17px;
+  -webkit-margin-start: 17px;
+  display: -webkit-box;
+  margin-top: 10px;	/* bYO! 6 lines on FF */
+  line-height: 16px;  
+}
+
+#exception-column-headers > div {
+  font-weight: bold;
+}
+
+#exception-pattern-column {
+  -webkit-box-flex: 1;
+}
+
+.exception-value-column-header {
+  width: 145px;
+}
+
+#content-settings-exceptions-area list {
+  /*margin-bottom: 10px;  bYO!  keep list area consistent with scrolling */
+  margin-top: 6px;
+}
+					/******	new ui compat... ******/			   
+button:not(.custom-appearance) {
+    --google-blue-500: #528de0; /* #3b72ce #4285f4 #0a84ff */ 
+    font-weight: 500;
+    line-height: 100%; /* 154% */
+    padding: 8px 10px;
+    color: white !important;
+    border: 1px solid var(--google-blue-500);
+    border-radius: 3px;
+    box-shadow: none !important;
+    font-family: inherit;
+    font-size: inherit;
+	text-shadow: none;    
+}
+
+button:enabled:not(.custom-appearance) {
+    background: var(--google-blue-500) !important;
+}
+
+button:enabled:not(.custom-appearance):focus {
+    background: rgb(58, 117, 215) !important;
+}
+
+select {
+    --md-arrow-width: 0.9em;
+    --md-arrow-offset: 0%;
+    --md-select-side-padding: 3px;
+    --md-select-width: 110px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+/*    -webkit-margin-end: calc(-1 * var(--md-select-side-padding)); */
+/*	-moz-margin-end: var(--md-select-side-padding); */
+/*    -webkit-padding-end: calc(var(--md-select-side-padding) + var(--md-arrow-offset) + var(--md-arrow-width) + 3px); */
+    -webkit-padding-start: var(--md-select-side-padding);
+    -moz-padding-start: calc(var(--md-select-side-padding) - 1px);
+    background: url(arrow_down.svg) calc(100% - var(--md-arrow-offset) - var(--md-select-side-padding)) center no-repeat !important;
+    background-image: url(arrow_down.svg) !important;
+    background-size: var(--md-arrow-width) !important;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+    padding-bottom: 2px;
+    padding-top: 3px;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    width: var(--md-select-width);
+/*    width: calc(var(--md-select-width, 200px) + 2 * var(--md-select-side-padding)); */
+    box-shadow: none !important;
+    text-shadow: none;    
+    margin: 3px 0;    
+}
+
+select:focus {
+    border-color: rgb(77, 144, 254);
+}
+
+select.exception-setting {
+    -webkit-padding-start: var(--md-select-side-padding);
+    width: calc(120px + var(--md-select-side-padding));
+}
+
+html > body {
+	height: 376px;
+	width: 500px;
+	margin: 0px 40px 14px 40px;  
+}
+
+.overlay {
+    background-color: rgba(255, 255, 255,.5);
+    bottom: 0px;
+    padding-top: 10px;    
+}
+
+.overlay .page {
+    max-height: 341.5px;	
+    box-shadow: 0 0px 1px 0px rgba(0, 0, 0, 0.2), 0 1px 6px rgba(0,0,0,0.15);
+}
+
+body > div:first-child {
+	padding-bottom: 5px;
+}
+
+.action-area {
+    padding-top: .3em !important;
+}
+
+label.settings-label {
+    width: auto;
+    min-width: 80px;
+    margin: 7px 0px;
+}
+
+input.settings-checkbox ~ label.settings-label {
+    -webkit-margin-start: 3px;
+    -moz-margin-start: 3px;   
+}
+
+select ~ button.exceptions-list-button{
+    -webkit-margin-start: auto;	
+    -moz-margin-start: auto;	
+}
+
+input.settings-checkbox {
+	display: -moz-box;
+}
+
+button:enabled:not(.custom-appearance):not(:focus):hover {
+    border: 1px solid rgba(0, 0, 0, 0.1); /* #3b72ce */
+}
+
+button:disabled:not(.custom-appearance) {
+    border-color: rgba(80, 80, 80, 0.1);
+    color: GrayText !important;
+}
+
+list input[type="text"] {
+	font-size: inherit;
+	font-family: inherit;
+	border: 1px solid rgb(190, 190, 190);
+	outline: none;
+}
+
+#perms-type {
+    -moz-padding-start: 3px;
+    height: 20px;
+}
+
+button::-moz-focus-inner {
+	border: 0; 
+}
+
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+	
+select:enabled:not(:focus):hover {
+	border-color: rgb(190, 190, 190);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root { color-scheme: dark; }
+	
+	html > body, .overlay .page {
+		background-color: rgb(51, 54, 56);
+		color: rgb(232, 234, 237);
+	}
+	
+	.overlay {
+		background-color: rgb(0, 0, 0, .3);
+	}
+		
+	body > hr {
+	    color: gray;
+	}
+	
+	select, list input[type='text'] {
+		background-color: rgb(35, 35, 35) !important;
+		border-color: rgb(160, 160, 160);
+		color: inherit !important;
+	}
+	
+	.settings-list,
+	.settings-list-empty {
+		border-color: rgb(160, 160, 160);
+	}
+	
+	list .deletable-item {
+		transition: unset;
+	}
+	
+	list > [selected], button:disabled:not(.custom-appearance) {
+		background-image: linear-gradient(#0000005a, #0000005a) !important;
+	}
+	
+	list:not([disabled]) > :not([selected]):hover {
+		background-color: rgb(70, 73, 76);
+	}
+}

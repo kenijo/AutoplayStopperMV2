@@ -1,0 +1,26 @@
+object[classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"]:not([flashstopped]),
+object[classid*=":d27cdb6e-ae6d-11cf-96b8-444553540000"]:not([flashstopped]),
+object[codebase*="swflash.cab"]:not([flashstopped]),
+object[data*=".swf"]:not([flashstopped]),
+object[type="application/x-shockwave-flash"]:not([flashstopped]),
+object[src*=".swf"]:not([flashstopped]),
+embed[type="application/x-shockwave-flash"]:not([flashstopped]),
+embed[src*=".swf"]:not([flashstopped]),
+embed[allowscriptaccess]:not([flashstopped]),
+embed[flashvars]:not([flashstopped]),
+embed[wmode]:not([flashstopped]),
+lima-video:not([flashstopped]),
+/*--------- shadow ---------*/
+[flashstop-shadow]:not([flashstopped]),
+/*--------- html5media ---------*/
+*:not([flashstopped_p]) > video,
+video:not([flashstopped]),
+audio:not([flashstopped]) { 
+	border: 5px red solid !important; 
+	box-sizing: border-box;	
+}
+
+*[flashstopped] { 
+	border: 3px blue solid !important;
+	box-sizing: border-box;	
+}

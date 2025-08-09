@@ -1,0 +1,213 @@
+{
+	"extensionDescription": {
+		"message": "Stops video autoplay gracefully."
+	},
+	
+	"allowSite": {
+		"message": "Allow autoplay for %S"
+	},
+	
+	"allowSession": {
+		"message": "Allow session autoplay for %S"
+	},
+	
+	"disableSite": {
+		"message": "Block flash detection for %S"
+	},
+	
+	"allowAll": {
+		"message": "Disable extension"
+	},
+	
+	"settings": {
+		"message": "Settings"
+	},
+
+	"version": {
+		"message": "Version"
+	},
+	
+	"autoplayTabLabel": {
+		"message": "Autoplay"
+	},
+	
+	"permissions": {
+		"message": "Websites Permissions:"
+	},
+	
+	"manageExceptions": {
+		"message": "Exceptions..."
+	},
+	
+	"defaultMode": {
+		"message": "Default Mode:"
+	},
+	
+	"disableAutoplay": {
+		"message": "Block Autoplay"
+	},
+	
+	"allowAutoplay": {
+		"message": "Allow Autoplay"
+	},
+	
+	"flashTabLabel": {
+		"message": "Flash"
+	},
+	
+	"allowFlash": {
+		"message": "Allow Detection"
+	},
+	
+	"disableFlash": {
+		"message": "Block Detection"
+	},	
+		
+	"autoplayExceptions": {
+		"message": "Autoplay exceptions"
+	},
+	
+	"flashExceptions": {
+		"message": "Flash detection exceptions"
+	},
+	
+	"exceptionHostnameHeader": {
+		"message": "Hostname"
+	},
+	
+	"exceptionBehaviorHeader": {
+		"message": "Behavior"
+	},
+	
+	"exceptionAllow": {
+		"message": "Allow"
+	},
+	
+	"exceptionBlock": {
+		"message": "Block"
+	},
+	
+	"exceptionPrompt": {
+		"message": "Block (strict)"
+	},
+	
+	"exceptionShadow": {
+		"message": "Block (shadow)"
+	},
+	
+	"exceptionSession": {
+		"message": "Session"
+	},
+	
+	"exceptionUndefined": {
+		"message": "Undefined"
+	},
+	
+	"apply": {
+		"message": "Apply"
+	},
+	
+	"removeAll": {
+		"message": "Remove All"
+	},
+	
+	"done": {
+		"message": "Done"
+	},
+	
+	"play": {
+		"message": "Play"
+	},
+	
+	"pause": {
+		"message": "Pause"
+	},
+	
+	"selector": {
+		"message": "Selector"
+	},
+	
+	"text": {
+		"message": "Text"
+	},
+	
+	"reset": {
+		"message": "Reset"
+	},
+	
+	"script": {
+		"message": "Script"
+	},
+	
+	"userScript": {
+		"message": "User Script"
+	},
+	
+	"path": {
+		"message": "Path"
+	},
+	
+	"actions": {
+		"message": "Actions"
+	},
+	
+	"edit": {
+		"message": "Edit"
+	},
+	
+	"load": {
+		"message": "Load"
+	},
+	
+	"export": {
+		"message": "Export..."
+	},
+	
+	"import": {
+		"message": "Import..."
+	},
+	
+	"setPath": {
+		"message": "Set Path"
+	},
+	
+	"selectFile": {
+		"message": "File..."
+	},
+	
+	"advanced": {
+		"message": "Advanced"
+	},
+	
+	"devtools": {
+		"message": "Devtools Panel"
+	},
+	
+	"overwrite": {
+		"message": "Disable overwrite on update"
+	},
+	
+	"debug": {
+		"message": "Log debug info"
+	},
+	
+	"loadError": {
+		"message": "Load script error: "
+	},
+	
+	"allowFileUrls": {
+		"message": "Error:  Cannot use user script without permission to access file URLs."
+	},
+	
+	"fileNotFound": {
+		"message": "AutoplayStopper - error: File not found.\n  Check that the script folder is in the workspace and verify the path."
+	},
+	
+	"evalError": {
+		"message": "AutoplayStopper - exception: "
+	},
+	
+	"importError": {
+		"message": "Error: Cannot import"
+	}
+}
