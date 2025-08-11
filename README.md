@@ -1,5 +1,5 @@
 # AutoplayStopper (Original)
-This is the original code of [AutoplayStopper](https://chromewebstore.google.com/detail/autoplaystopper/ejddcgojdblidajhngkogefpkknnebdh) Chrome Extension which is no longer available on the Chrome Web Store.
+This is the original code of the [AutoplayStopper](https://chromewebstore.google.com/detail/autoplaystopper/ejddcgojdblidajhngkogefpkknnebdh) Chrome Extension which is no longer available on the Chrome Web Store.
 
 This extension is Manifest V2 based and is no longer compatible with Chrome 104+.
 
@@ -65,4 +65,5 @@ Version 1.8.7  30/1/2021
 Version 1.8.5  17/1/2021
 * Added strict blocking mode.
 * Improved play rejection.
+
 
